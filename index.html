@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms of Service - Discord Bot</title>
+    <title>Terms of Service & Privacy Policy - Majestic Network</title>
     <style>
         * {
             margin: 0;
@@ -21,38 +21,108 @@
         }
 
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: #36393f;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .header h1 {
+            color: #ffffff;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #b9bbbe;
+            font-size: 1.1em;
+        }
+
+        .nav {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .nav-btn {
+            background: #5865f2;
+            color: #ffffff;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .nav-btn:hover {
+            background: #4752c4;
+        }
+
+        .nav-btn.active {
+            background: #4752c4;
+        }
+
+        .section {
+            display: none;
             background: #36393f;
             border-radius: 8px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
             padding: 40px;
+            animation: fadeIn 0.3s;
         }
 
-        h1 {
-            color: #ffffff;
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            text-align: center;
+        .section.active {
+            display: block;
         }
 
-        .intro {
-            text-align: center;
-            margin-bottom: 40px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid #4f545c;
-            color: #b9bbbe;
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         h2 {
+            color: #ffffff;
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #5865f2;
+        }
+
+        .intro {
+            margin-bottom: 30px;
+            padding: 15px;
+            background: #2f3136;
+            border-left: 4px solid #5865f2;
+            border-radius: 4px;
+            color: #b9bbbe;
+        }
+
+        h3 {
             color: #5865f2;
-            font-size: 1.5em;
-            margin-top: 30px;
-            margin-bottom: 15px;
+            font-size: 1.4em;
+            margin-top: 25px;
+            margin-bottom: 12px;
         }
 
         p {
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             color: #dcddde;
         }
 
@@ -66,71 +136,140 @@
             color: #dcddde;
         }
 
-        .highlight {
-            background: #2f3136;
-            padding: 15px;
-            border-left: 4px solid #5865f2;
-            border-radius: 4px;
-            margin: 20px 0;
-        }
-
         .footer {
             margin-top: 40px;
-            padding-top: 20px;
-            border-top: 2px solid #4f545c;
+            padding: 20px;
+            background: #36393f;
+            border-radius: 8px;
             text-align: center;
             color: #72767d;
             font-size: 0.9em;
         }
 
         @media (max-width: 600px) {
-            .container {
-                padding: 20px;
+            .header h1 {
+                font-size: 1.8em;
             }
 
-            h1 {
-                font-size: 2em;
+            .nav {
+                flex-direction: column;
+            }
+
+            .nav-btn {
+                width: 100%;
+            }
+
+            .section {
+                padding: 25px;
             }
 
             h2 {
-                font-size: 1.3em;
+                font-size: 1.6em;
+            }
+
+            h3 {
+                font-size: 1.2em;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Terms of Service</h1>
-        <div class="intro">
-            <p>By using this Discord Bot, you agree to the following terms.</p>
+        <div class="header">
+            <h1>Discord Bot Legal</h1>
+            <p>Terms of Service & Privacy Policy</p>
         </div>
 
-        <h2>1. Usage</h2>
-        <p>You may use the Bot only in compliance with Discord's Terms of Service and Community Guidelines.</p>
-        <p>You may not use the Bot to:</p>
-        <ul>
-            <li>Break laws</li>
-            <li>Harass or abuse others</li>
-            <li>Spread harmful or illegal content</li>
-            <li>Attempt to exploit or damage the Bot</li>
-        </ul>
+        <div class="nav">
+            <button class="nav-btn active" onclick="showSection('terms')">Terms of Service</button>
+            <button class="nav-btn" onclick="showSection('privacy')">Privacy Policy</button>
+        </div>
 
-        <h2>2. Availability</h2>
-        <p>The Bot is provided "as is". We do not guarantee that it will always be available or error-free.</p>
+        <!-- Terms of Service Section -->
+        <div id="terms" class="section active">
+            <h2>Terms of Service</h2>
+            <div class="intro">
+                <p>By using this Discord Bot, you agree to the following terms.</p>
+            </div>
 
-        <h2>3. Data</h2>
-        <p>By using the Bot, you agree that it may collect and store data as described in the Privacy Policy.</p>
+            <h3>1. Usage</h3>
+            <p>You may use the Bot only in compliance with Discord's Terms of Service and Community Guidelines.</p>
+            <p>You may not use the Bot to:</p>
+            <ul>
+                <li>Break laws</li>
+                <li>Harass or abuse others</li>
+                <li>Spread harmful or illegal content</li>
+                <li>Attempt to exploit or damage the Bot</li>
+            </ul>
 
-        <h2>4. Termination</h2>
-        <p>We reserve the right to block users or servers from using the Bot at any time if abuse or misuse occurs.</p>
+            <h3>2. Availability</h3>
+            <p>The Bot is provided "as is". We do not guarantee that it will always be available or error-free.</p>
 
-        <h2>5. Changes</h2>
-        <p>These terms may change at any time. Continued use of the Bot means you accept the updated terms.</p>
+            <h3>3. Data</h3>
+            <p>By using the Bot, you agree that it may collect and store data as described in the Privacy Policy.</p>
+
+            <h3>4. Termination</h3>
+            <p>We reserve the right to block users or servers from using the Bot at any time if abuse or misuse occurs.</p>
+
+            <h3>5. Changes</h3>
+            <p>These terms may change at any time. Continued use of the Bot means you accept the updated terms.</p>
+        </div>
+
+        <!-- Privacy Policy Section -->
+        <div id="privacy" class="section">
+            <h2>Privacy Policy</h2>
+            <div class="intro">
+                <p>This Privacy Policy explains how our Discord bot collects, uses, and protects user data.</p>
+            </div>
+
+            <h3>1. Data We Collect</h3>
+            <p>The Bot may collect the following data:</p>
+            <ul>
+                <li>Discord User IDs</li>
+                <li>Discord Server IDs</li>
+                <li>Message content (only when required for commands or features)</li>
+                <li>Command inputs</li>
+            </ul>
+            <p>This data is only collected when users interact with the Bot.</p>
+
+            <h3>2. How We Use Data</h3>
+            <p>The collected data is used only to:</p>
+            <ul>
+                <li>Provide the Bot's features</li>
+                <li>Process commands</li>
+                <li>Improve performance and functionality</li>
+            </ul>
+            <p>We do not sell, share, or distribute user data to third parties.</p>
+
+            <h3>3. Data Storage</h3>
+            <p>Data may be stored temporarily or permanently to allow the Bot to function correctly. We take reasonable measures to protect this data from unauthorized access.</p>
+
+            <h3>4. Data Removal</h3>
+            <p>Users can request deletion of their data by contacting us at: [YOUR CONTACT EMAIL OR DISCORD]</p>
+
+            <h3>5. Third-Party Services</h3>
+            <p>The Bot may use third-party services (such as Discord APIs or AI services). These services may process data according to their own privacy policies.</p>
+
+            <h3>6. Changes</h3>
+            <p>This policy may be updated at any time. Continued use of the Bot means acceptance of the updated policy.</p>
+        </div>
 
         <div class="footer">
             <p>Last updated: January 10.01.2026</p>
         </div>
     </div>
+
+    <script>
+        function showSection(section) {
+            const sections = document.querySelectorAll('.section');
+            const buttons = document.querySelectorAll('.nav-btn');
+            
+            sections.forEach(s => s.classList.remove('active'));
+            buttons.forEach(b => b.classList.remove('active'));
+            
+            document.getElementById(section).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
 </body>
 </html>
-
